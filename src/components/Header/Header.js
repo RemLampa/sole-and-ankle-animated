@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { QUERIES, WEIGHTS } from '../../constants';
-import Logo from '../Logo';
-import Icon from '../Icon';
-import UnstyledButton from '../UnstyledButton';
-import SuperHeader from '../SuperHeader';
-import MobileMenu from '../MobileMenu';
-import VisuallyHidden from '../VisuallyHidden';
+import { QUERIES, WEIGHTS } from "../../constants";
+import Logo from "../Logo";
+import Icon from "../Icon";
+import UnstyledButton from "../UnstyledButton";
+import SuperHeader from "../SuperHeader";
+import MobileMenu from "../MobileMenu";
+import VisuallyHidden from "../VisuallyHidden";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -20,12 +20,30 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <DesktopNav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">
+            <NavLinkTextNormal>Sale</NavLinkTextNormal>
+            <NavLinkTextHover>Sale</NavLinkTextHover>
+          </NavLink>
+          <NavLink href="/new">
+            <NavLinkTextNormal>New&nbsp;Releases</NavLinkTextNormal>
+            <NavLinkTextHover>New&nbsp;Releases</NavLinkTextHover>
+          </NavLink>
+          <NavLink href="/men">
+            <NavLinkTextNormal>Men</NavLinkTextNormal>
+            <NavLinkTextHover>Men</NavLinkTextHover>
+          </NavLink>
+          <NavLink href="/women">
+            <NavLinkTextNormal>Women</NavLinkTextNormal>
+            <NavLinkTextHover>Women</NavLinkTextHover>
+          </NavLink>
+          <NavLink href="/kids">
+            <NavLinkTextNormal>Kids</NavLinkTextNormal>
+            <NavLinkTextHover>Kids</NavLinkTextHover>
+          </NavLink>
+          <NavLink href="/collections">
+            <NavLinkTextNormal>Collections</NavLinkTextNormal>
+            <NavLinkTextHover>Collections</NavLinkTextHover>
+          </NavLink>
         </DesktopNav>
         <MobileActions>
           <ShoppingBagButton>
@@ -120,9 +138,36 @@ const NavLink = styled.a`
   text-decoration: none;
   color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
+  position: relative;
 
   &:first-of-type {
     color: var(--color-secondary);
+  }
+`;
+
+const NavLinkTextNormal = styled.span`
+  display: block;
+  transform-origin: top center;
+  transition: transform 150ms;
+
+  ${NavLink}:hover > & {
+    transform: scaleY(0);
+  }
+`;
+
+const NavLinkTextHover = styled.span`
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 700;
+  transform-origin: bottom center;
+  transition: transform 150ms;
+
+  transform: scaleY(0);
+
+  ${NavLink}:hover > & {
+    transform: scaleY(100%);
   }
 `;
 
