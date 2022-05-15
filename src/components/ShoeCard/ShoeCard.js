@@ -86,7 +86,9 @@ const Image = styled.img`
   filter: grayscale(75%);
 
   &:hover {
-    transform: scale(1.2);
+    @media (prefers-reduced-motion: no-preference) {
+      transform: scale(1.2);
+    }
     filter: grayscale(0%);
     transition: transform 100ms ease-in, filter 100ms ease-in;
   }

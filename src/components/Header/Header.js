@@ -147,8 +147,11 @@ const NavLink = styled.a`
 
 const NavLinkTextNormal = styled.span`
   display: block;
-  transform-origin: top center;
   transition: transform 150ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transform-origin: top center;
+  }
 
   ${NavLink}:hover > & {
     transform: scaleY(0);
@@ -161,8 +164,11 @@ const NavLinkTextHover = styled.span`
   top: 0;
   left: 0;
   font-weight: 700;
-  transform-origin: bottom center;
   transition: transform 150ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transform-origin: bottom center;
+  }
 
   transform: scaleY(0);
 

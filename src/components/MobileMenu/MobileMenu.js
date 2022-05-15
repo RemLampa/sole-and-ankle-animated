@@ -56,7 +56,9 @@ const Overlay = styled(DialogOverlay)`
   display: flex;
   justify-content: flex-end;
 
-  animation: ${fadeIn} 250ms;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${fadeIn} 250ms;
+  }
 `;
 
 const slideIn = keyframes`
@@ -77,12 +79,14 @@ const Content = styled(DialogContent)`
   display: flex;
   flex-direction: column;
 
-  animation: ${slideIn} 250ms;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${slideIn} 250ms;
 
-  > * {
-    animation: ${fadeIn} 500ms;
-    animation-delay: 250ms;
-    animation-fill-mode: backwards;
+    > * {
+      animation: ${fadeIn} 500ms;
+      animation-delay: 250ms;
+      animation-fill-mode: backwards;
+    }
   }
 `;
 
