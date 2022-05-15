@@ -80,6 +80,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  will-change: transform;
   transition: transform 500ms ease-out, filter 500ms ease-out;
   transform-origin: center 70%;
   filter: grayscale(75%);
